@@ -66,23 +66,27 @@ class _HomePageState extends State<HomePage> {
               decoration: InputDecoration(
                   hintText: '   Enter the amount in EUR', errorText: error),
               onChanged: (String value) {
-                setState(() {
-                  text = value;
-                });
+                setState(
+                  () {
+                    text = value;
+                  },
+                );
               },
             ),
           ),
           FlatButton(
             onPressed: () {
-              setState(() {
-                if (isNumeric(text)) {
-                  error = null;
-                  double nr = double.parse(text) * 4.50;
-                  nr = double.parse((nr).toStringAsFixed(3));
-                  show = '$nr' + ' RON';
-                } else
-                  error = '   Give a number!';
-              });
+              setState(
+                () {
+                  if (isNumeric(text)) {
+                    error = null;
+                    double nr = double.parse(text) * 4.50;
+                    nr = double.parse((nr).toStringAsFixed(3));
+                    show = '$nr' + ' RON';
+                  } else
+                    error = '   Give a number!';
+                },
+              );
             },
             color: Colors.lightGreen[100],
             textColor: Colors.indigo,
