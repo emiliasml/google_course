@@ -25,12 +25,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   String _error;
   String _hints = '';
-  int _number = 1;
+  int _number = Random().nextInt(100);
   String _givenNumberString = '';
-  final Random _random = Random();
   String _button = 'Guess';
 
-  void showAlertDialog(BuildContext context) {
+  void _showAlertDialog(BuildContext context) {
     // set up the button
     final Widget tryAgainButton = FlatButton(
       child: const Text('Try again!'),
@@ -69,16 +68,12 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  bool verifyInt(String nr) {
+  bool _verifyInt(String nr) {
     if (nr == null) {
       return false;
     }
     return int.tryParse(nr) != null;
   }
-
-  Random rnd = Random();
-
-  int next(int min, int max) => min + _random.nextInt(max - min);
 
   @override
   Widget build(BuildContext context) {
@@ -166,7 +161,7 @@ class _HomePageState extends State<HomePage> {
                         },
                       );
                     } else {
-                      if (verifyInt(_givenNumberString)) {
+                      if (_verifyInt(_givenNumberString)) {
                         setState(
                           () {
                             _error = null;
@@ -177,8 +172,7 @@ class _HomePageState extends State<HomePage> {
                             () {
                               _hints = 'You tried ' +
                                   _givenNumberString +
-                                  '\nTry lower!' +
-                                  '$_number';
+                                  '\nTry lower!';
                             },
                           );
                         else if (int.parse(_givenNumberString) < _number)
@@ -186,15 +180,14 @@ class _HomePageState extends State<HomePage> {
                             () {
                               _hints = 'You tried ' +
                                   _givenNumberString +
-                                  '\nTry higher!' +
-                                  '$_number';
+                                  '\nTry higher!';
                             },
                           );
                         else {
                           setState(
                             () {
-                              showAlertDialog(context);
-                              _number = next(1, 100);
+                              _showAlertDialog(context);
+                              _number = Random().nextInt(100);
                               _hints = 'You tried ' +
                                   _givenNumberString +
                                   '\nYou guessed!';
