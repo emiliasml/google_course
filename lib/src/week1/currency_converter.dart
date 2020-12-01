@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.lightGreen,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(65),
+        preferredSize: const Size.fromHeight(65),
         child: AppBar(
           title: const Text(
             'Currency convertor',
@@ -81,8 +81,8 @@ class _HomePageState extends State<HomePage> {
                   if (isNumeric(text)) {
                     error = null;
                     double nr = double.parse(text) * 4.50;
-                    nr = double.parse((nr).toStringAsFixed(3));
-                    show = '$nr' + ' RON';
+                    nr = double.parse(nr.toStringAsFixed(3));
+                    show = '$nr RON';
                   } else
                     error = '   Give a number!';
                 },
@@ -92,7 +92,7 @@ class _HomePageState extends State<HomePage> {
             textColor: Colors.indigo,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(7),
-              side: BorderSide(color: Colors.white70),
+              side: const BorderSide(color: Colors.white70),
             ),
             child: const Text(
               'Convert!',

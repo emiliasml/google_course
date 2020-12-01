@@ -24,7 +24,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   String _input;
   String _message;
-  String _error = null;
+  String _error ;
 
   //returns true if 'number' is
   //square, else false
@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
 
     for (int n = 1; sum <= number; n++) {
       sum = sum + n;
-      if (sum == number) return true;
+      if (sum == number) {return true;}
     }
     return false;
   }
