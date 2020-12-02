@@ -24,7 +24,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   String _input;
   String _message;
-  String _error ;
+  String _error;
 
   //returns true if 'number' is
   //square, else false
@@ -44,7 +44,9 @@ class _HomePageState extends State<HomePage> {
 
     for (int n = 1; sum <= number; n++) {
       sum = sum + n;
-      if (sum == number) {return true;}
+      if (sum == number) {
+        return true;
+      }
     }
     return false;
   }
@@ -71,7 +73,7 @@ class _HomePageState extends State<HomePage> {
     } else {
       setState(
         () {
-          int _nmb = int.parse(number);
+          final int _nmb = int.parse(number);
           _error = null;
           if (_verifySquare(_nmb) && _verifyTriangular(_nmb))
             _message = 'The number is both SQUARE and TRIANGULAR';

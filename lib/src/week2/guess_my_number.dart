@@ -35,10 +35,11 @@ class _HomePageState extends State<HomePage> {
       child: const Text('Try again!'),
       onPressed: () {
         Navigator.of(context).pop();
-        setState(() {
-          _hints = '';
-          _button = 'Guess';
-        },
+        setState(
+          () {
+            _hints = '';
+            _button = 'Guess';
+          },
         );
       },
     );
