@@ -68,8 +68,7 @@ Stream<String> runAndGetStdout(
   Function beforeExit,
 }) async* {
   final String commandDescription =
-      '${path.relative(executable, from: workingDirectory)} ${arguments
-      .join(' ')}';
+      '${path.relative(executable, from: workingDirectory)} ${arguments.join(' ')}';
   final String relativeWorkingDir = path.relative(workingDirectory);
 
   printProgress('RUNNING', relativeWorkingDir, commandDescription);
@@ -90,17 +89,15 @@ Stream<String> runAndGetStdout(
   }
 
   final int exitCode = await process.exitCode;
-  print(
-      '$clock ELAPSED TIME: ${prettyPrintDuration(time.elapsed)} for '
-          '$green$commandDescription$reset in $cyan$relativeWorkingDir$reset');
+  print('$clock ELAPSED TIME: ${prettyPrintDuration(time.elapsed)} for '
+      '$green$commandDescription$reset in $cyan$relativeWorkingDir$reset');
   if ((exitCode == 0) == expectNonZeroExit ||
       (expectedExitCode != null && exitCode != expectedExitCode)) {
     if (failureMessage != null) {
       print(failureMessage);
     }
     print('$redLine\n'
-        '${bold}ERROR: ${red}Last command exited with $exitCode (expected: ${
-        expectNonZeroExit ? (expectedExitCode ?? 'non-zero') : ''
+        '${bold}ERROR: ${red}Last command exited with $exitCode (expected: ${expectNonZeroExit ? (expectedExitCode ?? 'non-zero') : ''
             'zero'}).$reset\n'
         '${bold}Command: $green$commandDescription$reset\n'
         '${bold}Relative working directory: $cyan$relativeWorkingDir$reset\n'
@@ -129,8 +126,7 @@ Future<void> runCommand(
       'OutputMode.capture');
 
   final String commandDescription =
-      '${path.relative(executable, from: workingDirectory)} ${
-      arguments.join(' ')}';
+      '${path.relative(executable, from: workingDirectory)} ${arguments.join(' ')}';
   final String relativeWorkingDir = path.relative(workingDirectory);
   if (skip) {
     printProgress('SKIPPING', relativeWorkingDir, commandDescription);
@@ -168,9 +164,8 @@ Future<void> runCommand(
   }
 
   final int exitCode = await process.exitCode;
-  print(
-      '$clock ELAPSED TIME: ${prettyPrintDuration(time.elapsed)} for'
-          ' $green$commandDescription$reset in $cyan$relativeWorkingDir$reset');
+  print('$clock ELAPSED TIME: ${prettyPrintDuration(time.elapsed)} for'
+      ' $green$commandDescription$reset in $cyan$relativeWorkingDir$reset');
 
   if (output != null) {
     output
