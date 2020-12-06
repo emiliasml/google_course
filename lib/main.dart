@@ -1,4 +1,4 @@
-import 'src/week2/number_shapes.dart' as app;
+import 'src/week3/tic_tac_toe.dart' as app;
 
 void main() {
   app.main();
