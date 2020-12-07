@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -34,7 +35,7 @@ class _HomePageState extends State<HomePage> {
   String _player = '0';
   Color _colorButton = Colors.white;
   Color _color = Colors.purple;
-  final List<Button> _list = [
+  final List<Button> _list = <Button>[
     Button(),
     Button(),
     Button(),
@@ -65,7 +66,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void winColors(List<int> win) {
-    if(win.isEmpty){
+    if (win.isEmpty) {
       restart();
     }
     setState(() {
@@ -79,7 +80,7 @@ class _HomePageState extends State<HomePage> {
   void keepScore(int index) {
     bool _check = false;
     changeColors(index);
-    final List<int> win = [];
+    final List<int> win = <int>[];
     int _draw = 0;
     for (int i = 0; i < 9; i++)
       if (_list[i].color == Colors.green) {
@@ -158,7 +159,6 @@ class _HomePageState extends State<HomePage> {
         _colorButton = Colors.black;
       });
       winColors(win);
-
     }
   }
 
