@@ -69,12 +69,14 @@ class _HomePageState extends State<HomePage> {
     if (win.isEmpty) {
       restart();
     }
-    setState(() {
-      for (int i = 0; i < 9; i++) {
-        if (i != win[0] && i != win[1] && i != win[2])
-          _list[i].color = Colors.green;
-      }
-    });
+    setState(
+      () {
+        for (int i = 0; i < 9; i++) {
+          if (i != win[0] && i != win[1] && i != win[2])
+            _list[i].color = Colors.green;
+        }
+      },
+    );
   }
 
   void keepScore(int index) {
@@ -155,9 +157,11 @@ class _HomePageState extends State<HomePage> {
       _check = true;
     }
     if (_check) {
-      setState(() {
-        _colorButton = Colors.black;
-      });
+      setState(
+        () {
+          _colorButton = Colors.black;
+        },
+      );
       winColors(win);
     }
   }
